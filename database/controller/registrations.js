@@ -41,7 +41,17 @@ const updateRegistration = (req, res) => {
 };
 
 const deleteRegistration = (req, res) => {
-
+  const itemId = req.params.id;
+  registrations.deleteOne({ _id: itemId })
+    .then((result) => {
+      res.status(201).json(result);
+    })
+    .catch((err) => {
+      res.status(400).json({
+        message: 'Unable to delete registration',
+        errorMessage: err,
+      });
+    });
 };
 
 module.exports = {
