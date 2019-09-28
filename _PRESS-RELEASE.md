@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Training Registration Approval Form
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > A form to be used by employees to request training.  The form will collect the necessary data and send a DocuSign envelope once it has been reviewed.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > This form will provide automation through the use of DocuSign as an approval process to request and approve training requests.  Users will be presented with a form to complete.  Once users complete the form, a manager can review the information.  Once the review process has been completed, the manager can send the information to DocuSign for official approval and collect the necessary signatures to approve the training.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Existing registration form is done on paper with manual routing and wet signatures.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Removes the need for a paper registration form.  Approval signatures are routed via email, tracked, and stored in DocuSign.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > Simplify your process through the use of technology
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Submit a form through the web application.  A manager can review your request to ensure the data is valid.  Once a manager marks your request reviewed, they will be able to click a button to start the DocuSign approval workflow.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "Great product and innovative idea.  No longer to I have to print/sign/scan/email my approval forms.  I can review and send all my approval requests from one dashboard."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > The form is available at LINK HERE.  Let's grow our professional talents and start requesting training!
