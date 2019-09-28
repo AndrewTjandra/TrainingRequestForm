@@ -8,8 +8,9 @@ const registrationsSchema = mongoose.Schema({
   startDate: Date,
   endDate: Date,
   price: mongoose.Schema.Types.Decimal128,
+  status: String,
 });
 
 const registrations = db.model('Registrations', registrationsSchema);
 
-module.export = registrations;
+module.exports = registrations;
