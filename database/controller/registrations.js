@@ -1,24 +1,46 @@
 const registrations = require('../models/registrations');
 
 const getRegistrations = (req, res) => {
-
+  registrations.find({})
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(400).json({
+        message: 'Unable to get registrations',
+        errorMessage: err,
+      });
+    });
 };
 
 const createRegistration = (req, res) => {
   registrations.create(req.body)
-    .then((response) => {
-      res.status(201).json(response);
+    .then((result) => {
+      res.status(201).json(result);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.status(400).json({
+        message: 'Unable to create registration',
+        errorMessage: err,
+      });
     });
 };
 
-const updateRegistration = (req, res, id) => {
-
+const updateRegistration = (req, res) => {
+  const itemId = req.params.id;
+  registrations.update({ _id: itemId }, req.body)
+    .then((result) => {
+      res.status(201).json(result);
+    })
+    .catch((err) => {
+      res.status(400).json({
+        message: 'Unable to find registration',
+        errorMessage: err,
+      });
+    });
 };
 
-const deleteRegistration = (req, res, id) => {
+const deleteRegistration = (req, res) => {
 
 };
 
