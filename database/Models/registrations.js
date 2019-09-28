@@ -12,4 +12,4 @@ const registrationsSchema = mongoose.Schema({
 
 const registrations = db.model('Registrations', registrationsSchema);
 
-module.export = registrations;
+module.exports = registrations;

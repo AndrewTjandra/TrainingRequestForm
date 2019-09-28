@@ -5,6 +5,6 @@ mongoose.connect('mongodb://localhost:27017/TrainingRegistration', { useNewUrlPa
 const db = mongoose.connection;
 
 db.once('error', () => console.log('mongoose connection error'));
-db.once('open', () => console.log('mongoose connected successfully'));
+db.once('connected', () => console.log('mongoose connected successfully'));
 
-module.export = db;
+module.exports = db;
