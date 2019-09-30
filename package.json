@@ -20,11 +20,15 @@
   },
   "homepage": "https://github.com/AndrewTjandra/hrr40-mvp#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.7.1",
+    "prop-types": "^15.7.2",
     "react": "^16.10.0",
-    "react-dom": "^16.10.0"
+    "react-dom": "^16.10.0",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
