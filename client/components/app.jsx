@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -27,11 +28,9 @@ const App = () => {
       price: e.target.price.value,
       status: 'Submitted',
     })
-      .then(() => {
-        axios.get('/api/registration')
-          .then((result) => {
-            setRegistrations(result.data);
-          });
+      .then(() => axios.get('/api/registration'))
+      .then((result) => {
+        setRegistrations(result.data);
       })
       .catch((err) => {
         throw new Error(err);
@@ -41,10 +40,46 @@ const App = () => {
       });
   };
 
+  const updateRegistration = (e, registrationId) => {
+    e.preventDefault();
+    e.persist();
+
+    axios.put(`/api/registration/${registrationId}`, {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      email: e.target.email.value,
+      startDate: e.target.startDate.value,
+      endDate: e.target.endDate.value,
+      price: e.target.price.value,
+      status: 'Submitted',
+    })
+      .then(() => axios.get('/api/registration'))
+      .then((result) => {
+        setRegistrations(result.data);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      })
+      .finally(() => {
+        e.target.reset();
+      });
+  };
+
+  const deleteRegistration = (e, registration) => {
+    axios.delete(`/api/registration/${registration._id}`)
+      .then(() => axios.get('/api/registration'))
+      .then((result) => {
+        setRegistrations(result.data);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
+
   return (
     <div>
       <RegistrationForm submitHandler={submitRegistration} />
-      <Submitted registrations={registrations} />
+      <Submitted registrations={registrations} updateRegistration={updateRegistration} deleteHandler={deleteRegistration} />
     </div>
   );
 };
