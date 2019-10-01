@@ -1,4 +1,4 @@
-const registrations = require('../models/registrations.js');
+const registrations = require('../models/registrations');
 
 const getRegistrations = (req, res) => {
   registrations.find({})
