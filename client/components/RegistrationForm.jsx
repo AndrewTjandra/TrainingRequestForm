@@ -1,38 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Label = styled.label`
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 15px;
+`;
+
+const Button = styled.button`
+  border-radius: 20px;
+  display: block;
+  font-size: 16px;
+  margin: auto;
+  padding: 5px 15px;
+`;
 
 const RegistrationForm = ({ submitHandler }) => (
   <form onSubmit={submitHandler}>
-    <label htmlFor="firstName">
+    <Label htmlFor="firstName">
       First Name:
-      <input name="firstName" type="text" required />
-    </label>
+      <Input name="firstName" type="text" required />
+    </Label>
     <br />
-    <label htmlFor="lastName">
+    <Label htmlFor="lastName">
       Last Name:
-      <input name="lastName" type="text" required />
-    </label>
+      <Input name="lastName" type="text" required />
+    </Label>
     <br />
-    <label htmlFor="email">
+    <Label htmlFor="email">
       Email Address:
-      <input name="email" type="text" required />
-    </label>
+      <Input name="email" type="text" required />
+    </Label>
     <br />
-    <label htmlFor="startDate">
+    <Label htmlFor="startDate">
       Start Date:
-      <input name="startDate" type="date" required />
-    </label>
-    <label htmlFor="endDate">
+      <Input name="startDate" type="date" required />
+    </Label>
+    <Label htmlFor="endDate">
       End Date:
-      <input name="endDate" type="date" required />
-    </label>
+      <Input name="endDate" type="date" required />
+    </Label>
     <br />
-    <label htmlFor="price">
+    <Label htmlFor="price">
       Total Cost:
-      <input name="price" type="number" min="0.01" step="0.01" required />
-    </label>
+      <Input name="price" type="number" min="0.01" step="0.01" required />
+    </Label>
     <br />
-    <button type="submit">Register</button>
+    <Button type="submit">Register</Button>
   </form>
 );
 

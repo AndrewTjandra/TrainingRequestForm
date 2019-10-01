@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import moment from 'moment';
 
 const Container = styled.div`
   position: fixed;
@@ -12,18 +11,39 @@ const Container = styled.div`
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  text-align: left;
 
   ${({ displayModal }) => (displayModal ? 'display: block;' : 'display: none;')}
 `;
 
 const Display = styled.div`
   position:fixed;
+  padding: 50px;
   background: white;
-  width: 80%;
+  width: 30%;
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+`;
+
+const Label = styled.label`
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 15px;
+`;
+
+const Button = styled.button`
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto 10px;
+  padding: 5px 15px;
 `;
 
 const Modal = ({ handleClose, show, registrationItem, setRegistrationItem, updateRegistration }) => {
@@ -42,37 +62,37 @@ const Modal = ({ handleClose, show, registrationItem, setRegistrationItem, updat
     <Container displayModal={show}>
       <Display>
         <form onSubmit={updateHandler}>
-          <label htmlFor="firstName">
+          <Label htmlFor="firstName">
             First Name:
-            <input name="firstName" type="text" defaultValue={registrationItem.firstName} required />
-          </label>
+            <Input name="firstName" type="text" defaultValue={registrationItem.firstName} required />
+          </Label>
           <br />
-          <label htmlFor="lastName">
+          <Label htmlFor="lastName">
             Last Name:
-            <input name="lastName" type="text" defaultValue={registrationItem.lastName} required />
-          </label>
+            <Input name="lastName" type="text" defaultValue={registrationItem.lastName} required />
+          </Label>
           <br />
-          <label htmlFor="email">
+          <Label htmlFor="email">
             Email Address:
-            <input name="email" type="text" defaultValue={registrationItem.email} required />
-          </label>
+            <Input name="email" type="text" defaultValue={registrationItem.email} required />
+          </Label>
           <br />
-          <label htmlFor="startDate">
+          <Label htmlFor="startDate">
             Start Date:
-            <input name="startDate" type="date" required />
-          </label>
-          <label htmlFor="endDate">
+            <Input name="startDate" type="date" required />
+          </Label>
+          <Label htmlFor="endDate">
             End Date:
-            <input name="endDate" type="date" required />
-          </label>
+            <Input name="endDate" type="date" required />
+          </Label>
           <br />
-          <label htmlFor="price">
+          <Label htmlFor="price">
             Total Cost:
-            <input name="price" type="number" min="0.01" step="0.01" required />
-          </label>
+            <Input name="price" type="number" min="0.01" step="0.01" required />
+          </Label>
           <br />
-          <button type="submit">Update</button>
-          <button type="button" onClick={closeHandler}>Close</button>
+          <Button type="submit">Update</Button>
+          <Button type="button" onClick={closeHandler}>Close</Button>
         </form>
       </Display>
     </Container>

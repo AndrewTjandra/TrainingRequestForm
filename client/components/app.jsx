@@ -1,9 +1,31 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import RegistrationForm from './RegistrationForm';
 import Submitted from './Submitted';
+
+const Container = styled.div`
+  text-align: center;
+`;
+
+const Title = styled.h1`
+`;
+
+const FormSection = styled.section`
+  background-color: rgb(245, 245, 245);
+  margin: auto;
+  max-width: 500px;
+  padding: 20px;
+  text-align: left;
+`;
+
+const RegistrationSection = styled.section`
+  display: inline-block;
+  margin: auto;
+  padding: 20px;
+`;
 
 const App = () => {
   const [registrations, setRegistrations] = useState([]);
@@ -83,7 +105,7 @@ const App = () => {
       email: registration.email,
     })
       .then((result) => {
-        console.log(result);
+        alert(result.data.status);
       })
       .catch((err) => {
         throw new Error(err);
@@ -91,15 +113,20 @@ const App = () => {
   };
 
   return (
-    <div>
-      <RegistrationForm submitHandler={submitRegistration} />
-      <Submitted
-        registrations={registrations}
-        updateRegistration={updateRegistration}
-        deleteHandler={deleteRegistration}
-        sendToDocuSign={sendToDocuSign}
-      />
-    </div>
+    <Container>
+      <Title>Training Request Form</Title>
+      <FormSection>
+        <RegistrationForm submitHandler={submitRegistration} />
+      </FormSection>
+      <RegistrationSection>
+        <Submitted
+          registrations={registrations}
+          updateRegistration={updateRegistration}
+          deleteHandler={deleteRegistration}
+          sendToDocuSign={sendToDocuSign}
+        />
+      </RegistrationSection>
+    </Container>
   );
 };
 
