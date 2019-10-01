@@ -35,8 +35,8 @@ app.post('/api/docusign', (req, res) => {
       templateId: 'b7884896-64a8-40df-9f7a-53b9d80880ba',
       templateRoles: [
         {
-          email: 'ldogoldogol@gmail.com',
-          name: 'Leanne Dogoldogol',
+          email: req.body.email,
+          name: `${req.body.firstName} ${req.body.lastName}`,
           roleName: 'Employee',
         },
         {
