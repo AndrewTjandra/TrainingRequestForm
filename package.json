@@ -4,7 +4,7 @@
   "description": "MVP Project",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server/index.js",
     "start:dev": "nodemon server",
     "build": "webpack -p --config webpack.config.js",
     "build:dev": "webpack -d --config webpack.config.js --inline --watch"
