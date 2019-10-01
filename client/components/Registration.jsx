@@ -19,9 +19,13 @@ const Cell = styled.td`
 `;
 
 // eslint-disable-next-line object-curly-newline
-const Registration = ({ registration, deleteHandler, showModal, setRegistrationItem }) => {
+const Registration = ({ registration, deleteHandler, showModal, setRegistrationItem, sendToDocuSign }) => {
   const deleteHandlerEvent = (e) => {
     deleteHandler(e, registration);
+  };
+
+  const docuSignHandlerEvent = (e) => {
+    sendToDocuSign(e, registration);
   };
 
   const openModal = () => {
@@ -64,7 +68,7 @@ const Registration = ({ registration, deleteHandler, showModal, setRegistrationI
         </Icon>
       </Cell>
       <Cell>
-        <Icon type="button">
+        <Icon type="button" onClick={docuSignHandlerEvent}>
           <img src="./assets/send.png" alt="send" />
         </Icon>
       </Cell>
@@ -77,6 +81,7 @@ Registration.propTypes = {
   deleteHandler: PropTypes.func,
   showModal: PropTypes.func,
   setRegistrationItem: PropTypes.func,
+  sendToDocuSign: PropTypes.func,
 };
 
 Registration.defaultProps = {
@@ -84,6 +89,7 @@ Registration.defaultProps = {
   deleteHandler: () => {},
   showModal: () => {},
   setRegistrationItem: () => {},
+  sendToDocuSign: () => {},
 };
 
 export default Registration;

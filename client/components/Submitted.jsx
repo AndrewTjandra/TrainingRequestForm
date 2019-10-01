@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -11,7 +12,7 @@ const Table = styled.table`
 `;
 
 
-const Submitted = ({ registrations, updateRegistration, deleteHandler }) => {
+const Submitted = ({ registrations, updateRegistration, deleteHandler, sendToDocuSign }) => {
   const [displayModel, setDisplayModal] = useState(false);
   const [registrationItem, setRegistrationItem] = useState({});
 
@@ -70,6 +71,7 @@ const Submitted = ({ registrations, updateRegistration, deleteHandler }) => {
               deleteHandler={deleteHandler}
               setRegistrationItem={setRegistrationItem}
               showModal={showModal}
+              sendToDocuSign={sendToDocuSign}
             />
           ))}
         </tbody>
@@ -82,12 +84,14 @@ Submitted.propTypes = {
   registrations: PropTypes.array,
   deleteHandler: PropTypes.func,
   updateRegistration: PropTypes.func,
+  sendToDocuSign: PropTypes.func,
 };
 
 Submitted.defaultProps = {
   registrations: [],
   deleteHandler: () => {},
   updateRegistration: () => {},
+  sendToDocuSign: () => {},
 };
 
 export default Submitted;

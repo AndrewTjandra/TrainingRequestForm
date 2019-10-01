@@ -76,10 +76,29 @@ const App = () => {
       });
   };
 
+  const sendToDocuSign = (e, registration) => {
+    axios.post('/api/docusign', {
+      firstName: registration.firstName,
+      lastName: registration.lastName,
+      email: registration.email,
+    })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
+
   return (
     <div>
       <RegistrationForm submitHandler={submitRegistration} />
-      <Submitted registrations={registrations} updateRegistration={updateRegistration} deleteHandler={deleteRegistration} />
+      <Submitted
+        registrations={registrations}
+        updateRegistration={updateRegistration}
+        deleteHandler={deleteRegistration}
+        sendToDocuSign={sendToDocuSign}
+      />
     </div>
   );
 };
